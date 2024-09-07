@@ -7,8 +7,8 @@ $success_message = "";
 if(($_SERVER['REQUEST_METHOD'] == 'POST') and isset($_POST['submit'])){
     $student_name = $_POST['student_name'];
     $rollno = $_POST['rollno'];
-    $date_of_birth = $_POST['data_of_birth'];
-    $study_year = $_POST['study_year']; 
+    $date_of_birth = $_POST['date_of_birth'];
+    $study_year = $_POST['year']; 
 
     //if the database is not create it create a new 
     $dbcheck = "CREATE DATABASE IF NOT EXISTS $dbname";
@@ -64,9 +64,9 @@ $conn -> close();
         Roll No : <input type="text" name="rollno" id="rollno" required><br><br>
         Date of birth : <input type="date" name="date_of_birth" id="dob" required><br><br>
         Year : 
-        <input type="radio" name="year" value="First"required>
-        <input type="radio" name="year" value="Second">
-        <input type="radio" name="year" value="Third">
+        <input type="radio" name="year" value="First"required> First
+        <input type="radio" name="year" value="Second"> Second
+        <input type="radio" name="year" value="Third"> Third
         <br><br>
         <input type="submit" value="Submit">
     </form>
