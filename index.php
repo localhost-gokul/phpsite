@@ -34,7 +34,15 @@ if(($_SERVER['REQUEST_METHOD'] == 'POST') and isset($_POST['submit'])){
             die("Error creating the database :". $conn -> error);
         }
     }
+    $sql_insert = "INSERT INTO students (student_name, rollno, date_of_birth, year) VALUES ('$student_name', '$rollno', '$date_of_birth', '$year')";
 
+    if($con -> query($sql_insert) === true){
+        echo "<script>alert('New Record created successfully.')</script>";
+    }
+    else{
+        echo "Error ". $sql_insert ."<br>". $conn -> error;
+    }
 }
 
+$conn -> close();
 ?>
