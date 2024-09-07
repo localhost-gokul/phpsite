@@ -1,9 +1,9 @@
 <?php
-include "SQL.php"; //import the credentials file
+include "serv_cred.php"; //import the credentials file
 
 //check the server method as post and the user is click the submit button
 if(($_SERVER['REQUEST_METHOD'] == 'POST') and isset($_POST['submit'])){
-    $student_name = $_POST['student_name'];
+    $name = $_POST['name'];
     $rollno = $_POST['rollno'];
     $date_of_birth = $_POST['date_of_birth'];
     $year = $_POST['year']; 
@@ -26,23 +26,23 @@ if(($_SERVER['REQUEST_METHOD'] == 'POST') and isset($_POST['submit'])){
         
         //If the error is accuired display the message
         if($conn->query($create_table) !== true){
-            die("Error creating the table : ". $conn -> connect_error);
+            die("Error creating the table : ". $conn->connect_error);
         }
     }
     else{
-        die("Error creating the database :". $conn -> connect_error);
+        die("Error creating the database :". $conn->connect_error);
     }
-    $sql_insert = "INSERT INTO students (student_name, rollno, date_of_birth, year) VALUES ('$student_name', '$rollno', '$date_of_birth', '$year')";
+    $sql_insert = "INSERT INTO students (name, rollno, date_of_birth, year) VALUES ('$student_name', '$rollno', '$date_of_birth', '$year')";
 
     if($conn -> query($sql_insert) === true){
         echo "<script>alert('New Record created successfully.')</script>";
     }
     else{
-        echo "Error ". $sql_insert ."<br>". $conn -> connect_error;
+        echo "Error ". $sql_insert ."<br>". $conn->connect_error;
     }
 }
 
-$conn -> close();
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +54,7 @@ $conn -> close();
 <body>
     <h1>Add a new details</h1>
     <form action="index.php" method="post">
-        Student Name : <input type="text" name="student_name" id="sname" required><br><br>
+        Student Name : <input type="text" name="name" id="sname" required><br><br>
         Roll No : <input type="text" name="rollno" id="rollno" required><br><br>
         Date of birth : <input type="date" name="date_of_birth" id="dob" required><br><br>
         Year : 
@@ -64,7 +64,7 @@ $conn -> close();
         <br><br>
         <input type="submit" value="Submit">
     </form>
-    <form action="view_db.php" method="get">
+    <form action="record.php" method="get">
         <input type="submit" value="View Record">
     </form>
 </body>
