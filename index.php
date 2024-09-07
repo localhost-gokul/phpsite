@@ -46,3 +46,32 @@ if(($_SERVER['REQUEST_METHOD'] == 'POST') and isset($_POST['submit'])){
 
 $conn -> close();
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Studnet Details</title>
+</head>
+<body>
+    <h1>Add a new details</h1>
+    <?php if($success_message): ?>
+        <p><?php echo $success_message; ?></p>
+    <?php endif; ?>
+
+    <form action="index.php" method="post">
+        Student Name : <input type="text" name="student_name" id="sname" required><br><br>
+        Roll No : <input type="text" name="rollno" id="rollno" required><br><br>
+        Date of birth : <input type="date" name="date_of_birth" id="dob" required><br><br>
+        Year : 
+        <input type="radio" name="year" value="First"required>
+        <input type="radio" name="year" value="Second">
+        <input type="radio" name="year" value="Third">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <form action="view_db.php" method="get">
+        <input type="submit" value="View Record">
+    </form>
+</body>
+</html>
