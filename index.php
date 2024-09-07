@@ -2,7 +2,7 @@
 include "serv_cred.php"; //import the credentials file
 
 //check the server method as post and the user is click the submit button
-if(($_SERVER['REQUEST_METHOD'] == 'POST') and isset($_POST['submit'])){
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $name = $_POST['name'];
     $rollno = $_POST['rollno'];
     $date_of_birth = $_POST['date_of_birth'];
