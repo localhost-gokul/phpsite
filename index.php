@@ -6,7 +6,7 @@ if(($_SERVER['REQUEST_METHOD'] == 'POST') and isset($_POST['submit'])){
     $student_name = $_POST['student_name'];
     $rollno = $_POST['rollno'];
     $date_of_birth = $_POST['date_of_birth'];
-    $study_year = $_POST['year']; 
+    $year = $_POST['year']; 
 
     //if the database is not create it create a new 
     $dbcheck = "CREATE DATABASE IF NOT EXISTS $dbname";
