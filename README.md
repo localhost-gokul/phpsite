@@ -77,8 +77,29 @@ Once you have installed XAMPP or WAMP and verified that Apache and MySQL are run
 
 4. **Set Up the Database**:  
    - Open PHPMyAdmin by navigating to `http://localhost/phpmyadmin/`.
-   - Create a new database named `student_db`.
-   - Run the SQL queries in `index.php` to set up the `students` table (the table is created automatically when the form is submitted).
+   
+   - **Create the Database**:
+   Run the following SQL command to create the database:
+   ```sql
+     CREATE DATABASE IF NOT EXISTS student_db;
+   ```
+   ```sql
+      USE student_db;
+   ```
+   - **Create the Table**:  
+   - If the database `student_db` does not already contain the `students` table, execute the following SQL command to create it:
+
+     ```sql
+     CREATE TABLE IF NOT EXISTS students (
+         id            INT(11)     AUTO_INCREMENT PRIMARY KEY,
+         name          VARCHAR(50) NOT NULL,
+         rollno        VARCHAR(20) NOT NULL,
+         date_of_birth DATE        NOT NULL,
+         year          ENUM('First', 'Second', 'Third')  NOT NULL,
+         created_at    TIMESTAMP   DEFAULT CURRENT_TIMESTAMP
+     );
+     ```
+   - If the database and the table are created in phpMyAdmin, the queries in index.php will not be executed.
 
 5. **Configure Database Credentials**:  
    - Open `serv_cred.php` and set your MySQL username and password.
