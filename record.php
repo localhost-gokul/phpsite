@@ -6,8 +6,9 @@ if($conn->connect_error){
     die("Connection failed ".$conn->connect_error);
 }
 
+$conn->select_db($dbname);
 //display the details by using the query1
-$query1 = "SELECT id, name, rollno, date_of_birth, year, created_at FROM '$dbname'";
+$query1 = "SELECT id, name, rollno, date_of_birth, year, created_at FROM students";
 $result = $conn->query($query1);
 ?>
 
