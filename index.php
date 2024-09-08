@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         //create the students table if it doesn't exists
         $create_table = "CREATE TABLE IF NOT EXISTS students (
         id            INT(11)     AUTO_INCREMENT PRIMARY KEY,
-        student_name  VARCHAR(50) NOT NULL,
+        name          VARCHAR(50) NOT NULL,
         rollno        VARCHAR(20) NOT NULL,
         date_of_birth DATE        NOT NULL,
         year          ENUM('First', 'Second', 'Third')  NOT NULL,
@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     //Insert the students details into the database
-    $sql_insert = "INSERT INTO students (name, rollno, date_of_birth, year) VALUES ('$student_name', '$rollno', '$date_of_birth', '$year')";
+    $sql_insert = "INSERT INTO students (name, rollno, date_of_birth, year) VALUES ('$name', '$rollno', '$date_of_birth', '$year')";
 
     //Check the Query is inserted it display the message by using the Javascript
     if($conn -> query($sql_insert) === true){
