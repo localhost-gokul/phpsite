@@ -105,9 +105,9 @@ Once you have installed XAMPP or WAMP and verified that Apache and MySQL are run
    - Open `serv_cred.php` and set your MySQL username and password.
    ```php
    $hostname = "localhost";
-   $username = "root";    // Default XAMPP/WAMP MySQL username
-   $password = "";        // Default XAMPP/WAMP MySQL password is empty
-   $dbname = "student_db"; // The database name created earlier
+   $username = "root";    
+   $password = "";        
+   $dbname = "student_db"; 
 
 6. **Run the Application**:
     - Start your local server (Apache and MySQL) using XAMPP/WAMP.
