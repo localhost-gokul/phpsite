@@ -1,7 +1,7 @@
 <?php
 include "serv_cred.php"; //import the credentials file
 
-//check the server method as post and the user is click the submit button
+//check the server method as post
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $name = $_POST['name'];
     $rollno = $_POST['rollno'];
@@ -32,8 +32,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     else{
         die("Error creating the database :". $conn->connect_error);
     }
+
+    //Insert the students details into the database
     $sql_insert = "INSERT INTO students (name, rollno, date_of_birth, year) VALUES ('$student_name', '$rollno', '$date_of_birth', '$year')";
 
+    //Check the Query is inserted it display the message by using the Javascript
     if($conn -> query($sql_insert) === true){
         echo "<script>alert('New Record created successfully.')</script>";
     }
@@ -54,9 +57,9 @@ $conn->close();
 <body>
     <h1>Add a new details</h1>
     <form action="index.php" method="post">
-        Student Name : <input type="text" name="name" id="sname" required><br><br>
-        Roll No : <input type="text" name="rollno" id="rollno" required><br><br>
-        Date of birth : <input type="date" name="date_of_birth" id="dob" required><br><br>
+        Student Name : <input type="text" name="name" required><br><br>
+        Roll No : <input type="text" name="rollno" required><br><br>
+        Date of birth : <input type="date" name="date_of_birth" required><br><br>
         Year : 
         <input type="radio" name="year" value="First"required> First
         <input type="radio" name="year" value="Second"> Second
