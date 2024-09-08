@@ -7,7 +7,7 @@ $dbname = "student_db";   //database name
 //initializing the connection with MYSQL
 $conn = new mysqli($hostname, $username, $password);
 
-if($conn ->connect_errno){
-    die("connection failed: ".$conn->connect_errno);
+if($conn ->connect_error){
+    die("connection failed: ".$conn->connect_error);
 }
 ?>
