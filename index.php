@@ -5,8 +5,7 @@ include "serv_cred.php"; //import the credentials file
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $name = $_POST['name'];
     $rollno = $_POST['rollno'];
-    $date_of_birth = $_POST['date_of_birth'];
-    $year = $_POST['year']; 
+    $age = $_POST['age']; 
 
     //if the database is not create it create a new 
     $dbcheck = "CREATE DATABASE IF NOT EXISTS $dbname";
