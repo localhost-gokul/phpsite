@@ -77,15 +77,18 @@ Once you have installed XAMPP or WAMP and verified that Apache and MySQL are run
 
 4. **Set Up the Database**:  
    - Open PHPMyAdmin by navigating to `http://localhost/phpmyadmin/`.
-   
+
    - **Create the Database**:
    Run the following SQL command to create the database:
+
    ```sql
      CREATE DATABASE IF NOT EXISTS student_db;
    ```
+
    ```sql
       USE student_db;
    ```
+
    - **Create the Table**:  
    - If the database `student_db` does not already contain the `students` table, execute the following SQL command to create it:
 
@@ -94,24 +97,25 @@ Once you have installed XAMPP or WAMP and verified that Apache and MySQL are run
          id            INT(11)     AUTO_INCREMENT PRIMARY KEY,
          name          VARCHAR(50) NOT NULL,
          rollno        VARCHAR(20) NOT NULL,
-         date_of_birth DATE        NOT NULL,
-         year          ENUM('First', 'Second', 'Third')  NOT NULL,
+         age           INT(5)      NOT NULL,
          created_at    TIMESTAMP   DEFAULT CURRENT_TIMESTAMP
      );
      ```
+
    - If the database and the table are created in phpMyAdmin, the queries in index.php will not be executed.
 
 5. **Configure Database Credentials**:  
    - Open `serv_cred.php` and set your MySQL username and password.
+
    ```php
    $hostname = "localhost";
    $username = "root";    
    $password = "";        
    $dbname = "student_db"; 
 
-6. **Run the Application**:
+6.**Run the Application**:
     - Start your local server (Apache and MySQL) using XAMPP/WAMP.
-    - Open a web browser and navigate to http://localhost/phpsite/index.php.
+    - Open a web browser and navigate to <http://localhost/phpsite/index.php>.
 
 ### Usage
 
