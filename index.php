@@ -19,8 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         id            INT(11)     AUTO_INCREMENT PRIMARY KEY,
         name          VARCHAR(50) NOT NULL,
         rollno        VARCHAR(20) NOT NULL,
-        date_of_birth DATE        NOT NULL,
-        year          ENUM('First', 'Second', 'Third')  NOT NULL,
+        age           INT(5)      NOT NULL,
         created_at    TIMESTAMP   DEFAULT CURRENT_TIMESTAMP
         );";
         
@@ -34,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     //Insert the students details into the database
-    $sql_insert = "INSERT INTO students (name, rollno, date_of_birth, year) VALUES ('$name', '$rollno', '$date_of_birth', '$year')";
+    $sql_insert = "INSERT INTO students (name, rollno, age) VALUES ('$name', '$rollno', '$age')";
 
     //Check the Query is inserted it display the message by using the Javascript
     if($conn -> query($sql_insert) === true){
@@ -56,19 +55,17 @@ $conn->close();
 </head>
 <body>
     <h1>Add a new details</h1>
+
     <form action="index.php" method="post">
-        Student Name : <input type="text" name="name" required><br><br>
-        Roll No : <input type="text" name="rollno" required><br><br>
-        Date of birth : <input type="date" name="date_of_birth" required><br><br>
-        Year : 
-        <input type="radio" name="year" value="First"required> First
-        <input type="radio" name="year" value="Second"> Second
-        <input type="radio" name="year" value="Third"> Third
-        <br><br>
+        Student Name : <input type="text" name="name" required>  <br><br>
+        Roll No : <input type="text" name="rollno" required> <br><br>
+        Age : <input type="number" name="age" required> <br><br>
         <input type="submit" value="Submit">
     </form>
+
     <form action="record.php" method="get">
         <input type="submit" value="View Record">
     </form>
+
 </body>
 </html>
