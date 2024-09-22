@@ -8,7 +8,7 @@ if($conn->connect_error){
 
 $conn->select_db($dbname);
 //display the details by using the query1
-$query1 = "SELECT id, name, rollno, date_of_birth, year, created_at FROM students";
+$query1 = "SELECT id, name, rollno, age, created_at FROM students";
 $result = $conn->query($query1);
 ?>
 
@@ -35,8 +35,7 @@ $result = $conn->query($query1);
                 <td><?php echo $row['id'];?></td>
                 <td><?php echo $row['name'];?></td>
                 <td><?php echo $row['rollno'];?></td>
-                <td><?php echo $row['date_of_birth'];?></td>
-                <td><?php echo $row['year'];?></td>
+                <td><?php echo $row['age'];?></td>
                 <td><?php echo $row['created_at'];?></td>
             </tr>
             <?php endwhile;?>
